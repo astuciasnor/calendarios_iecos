@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Calendários IECOS – 4º Período 2025</title>
+<title>About – Calendários IECOS</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -29,6 +29,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./assets/images/logo-iecos.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -83,7 +84,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Calendários IECOS – 4º Período 2025</h1>
+<h1 class="title">About</h1>
 </div>
 
 
@@ -100,76 +101,10 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="wrapper">
-<!-- ====== SIDEBAR ====== -->
-<aside class="sidebar">
-<p><label for="courseSelect" class="sidebar-label">Selecione o Curso:</label> <select id="courseSelect" onchange="changeCourse(this.value)"> <option value="EP">Engenharia de Pesca</option> <option value="CB">Ciências Biológicas</option> <option value="CN">Ciências Naturais</option> </select></p>
-<section id="turmas" class="level3">
-<h3 class="anchored" data-anchor-id="turmas">Turmas</h3>
-<div id="turmaList">
-
-</div>
-<div class="sidebar-footer">
-<p>Autor: Prof.&nbsp;Evaldo Silva</p>
-</div>
-</section></aside>
-<!-- ====== CONTEÚDO PRINCIPAL ====== -->
-<section class="content">
-</section>
-<section id="curso-engenharia-de-pesca" class="level2">
-<h2 class="anchored" data-anchor-id="curso-engenharia-de-pesca">Curso: <span id="courseName">Engenharia de Pesca</span></h2>
-<section id="período-4º-ano-letivo-20252025" class="level3">
-<h3 class="anchored" data-anchor-id="período-4º-ano-letivo-20252025">Período: 4º – Ano letivo 2025/2025</h3>
-<iframe id="calendarFrame" src="resources/calendarios/EP_T2025_4P-2025.html">
-</iframe>
-</section>
-</section>
-
-</div>
-<!-- ====== SCRIPT ========= -->
-<script>
-const courses = {
-  EP: { name: "Engenharia de Pesca", prefix: "EP_T", turmas: ["2022","2023","2024","2025"], defaultTurma: "2025" },
-  CB: { name: "Ciências Biológicas", prefix: "CB_T", turmas: ["2022","2023","2024","2025"], defaultTurma: "2025" },
-  CN: { name: "Ciências Naturais",  prefix: "CN_T", turmas: ["2022","2023","2024","2025"], defaultTurma: "2025" }
-};
-
-// gera links de turma
-function loadTurmas(courseKey){
-  const box = document.getElementById('turmaList');
-  box.innerHTML = '';
-  courses[courseKey].turmas.forEach(yr => {
-    const a = document.createElement('a');
-    a.href = '#';
-    a.textContent = yr;
-    a.onclick = e => { e.preventDefault(); showCalendar(courseKey, yr); };
-    box.appendChild(a);
-  });
-}
-
-// troca de curso
-function changeCourse(courseKey){
-  const c = courses[courseKey];
-  document.getElementById('courseName').textContent = c.name;
-  loadTurmas(courseKey);
-  showCalendar(courseKey, c.defaultTurma);
-  document.getElementById('courseSelect').value = courseKey;
-}
-
-// exibe calendário
-function showCalendar(courseKey, turma){
-  const c = courses[courseKey];
-  const src = `resources/calendarios/${c.prefix}${turma}_4P-2025.html`;
-  document.getElementById('calendarFrame').src = src;
-
-  // destaque visual
-  Array.from(document.getElementById('turmaList').children)
-       .forEach(a => a.classList.toggle('active', a.textContent === turma));
-}
-
-// inicialização
-document.addEventListener('DOMContentLoaded', () => changeCourse('EP'));
-</script>
+<p>Este site hospeda os calendários da Faculdades de enegeharia de Pesca</p>
+<p>O Geredor de Calendário em html foi feito pelo Prof.&nbsp;Dr.&nbsp;Evaldo Martins da Silva. Ele é uma aplicativo web e usa como catálogo das componente curriculares arquivos csv dos cursos, com suas respectivas caraga horárias, códigos.<br>
+Vou atrelar a diciplina a caraga horária e gerar um calendário por professor</p>
+<p>Neste website, podemos navegar pelas turmas dos curso do IECOS.</p>
 
 
 

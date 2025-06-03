@@ -1,11 +1,82 @@
 ---
-title: "calendarios_iecos"
+title: "Calendários IECOS – 4º Período 2025"
+page-layout: full
 ---
 
-This is a Quarto website.
+<div class="wrapper">
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+<!-- ====== SIDEBAR ====== -->
+<aside class="sidebar">
 
-```{r}
-1 + 1
-```
+<label for="courseSelect" class="sidebar-label">Selecione o Curso:</label>
+<select id="courseSelect" onchange="changeCourse(this.value)">
+  <option value="EP">Engenharia de Pesca</option>
+  <option value="CB">Ciências Biológicas</option>
+  <option value="CN">Ciências Naturais</option>
+</select>
+
+### Turmas
+<div id="turmaList"></div>
+
+<div class="sidebar-footer">
+  Autor: Prof. Evaldo Silva
+</div>
+</aside>
+
+<!-- ====== CONTEÚDO PRINCIPAL ====== -->
+<section class="content">
+
+## Curso: <span id="courseName">Engenharia de Pesca</span>
+### Período: 4º – Ano letivo 2025/2025
+
+<iframe id="calendarFrame"
+        src="resources/calendarios/EP_T2025_4P-2025.html">
+</iframe>
+
+</section>
+</div>
+
+<!-- ====== SCRIPT ========= -->
+<script>
+const courses = {
+  EP: { name: "Engenharia de Pesca", prefix: "EP_T", turmas: ["2022","2023","2024","2025"], defaultTurma: "2025" },
+  CB: { name: "Ciências Biológicas", prefix: "CB_T", turmas: ["2022","2023","2024","2025"], defaultTurma: "2025" },
+  CN: { name: "Ciências Naturais",  prefix: "CN_T", turmas: ["2022","2023","2024","2025"], defaultTurma: "2025" }
+};
+
+// gera links de turma
+function loadTurmas(courseKey){
+  const box = document.getElementById('turmaList');
+  box.innerHTML = '';
+  courses[courseKey].turmas.forEach(yr => {
+    const a = document.createElement('a');
+    a.href = '#';
+    a.textContent = yr;
+    a.onclick = e => { e.preventDefault(); showCalendar(courseKey, yr); };
+    box.appendChild(a);
+  });
+}
+
+// troca de curso
+function changeCourse(courseKey){
+  const c = courses[courseKey];
+  document.getElementById('courseName').textContent = c.name;
+  loadTurmas(courseKey);
+  showCalendar(courseKey, c.defaultTurma);
+  document.getElementById('courseSelect').value = courseKey;
+}
+
+// exibe calendário
+function showCalendar(courseKey, turma){
+  const c = courses[courseKey];
+  const src = `resources/calendarios/${c.prefix}${turma}_4P-2025.html`;
+  document.getElementById('calendarFrame').src = src;
+
+  // destaque visual
+  Array.from(document.getElementById('turmaList').children)
+       .forEach(a => a.classList.toggle('active', a.textContent === turma));
+}
+
+// inicialização
+document.addEventListener('DOMContentLoaded', () => changeCourse('EP'));
+</script>
