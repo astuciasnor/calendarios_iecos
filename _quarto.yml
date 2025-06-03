@@ -1,7 +1,8 @@
 project:
   type: website
   output-dir: docs
-
+  resources:
+    - resources/calendarios/** 
 website:
   title: "Calendários IECOS – 4º Período 2025"
   page-navigation: false
