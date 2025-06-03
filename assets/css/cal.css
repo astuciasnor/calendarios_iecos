@@ -26,3 +26,39 @@ h1        { text-align:center; margin:.2rem 0 1.2rem; font-size:1.6rem; }
 /* ===  CALENDÁRIO  === */
 #iframeCal { width:100%; height:900px; border:1px solid #ccc; border-radius:6px; }
 #iframeCal::-webkit-scrollbar { width:0; background:transparent; }
+
+/* === LINKS DA SIDEBAR ====================================== */
+.sidebar a.active,
+.sidebar a:hover {
+  background: #e1e7ff;   /* cor suave de realce */
+  color: #003578;
+  text-decoration: none;
+}
+
+/* === CABEÇALHO SUPERIOR ==================================== */
+.header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;       /* centra bloco de texto */
+  gap: 1rem;
+  background: #f2f5f9;
+  border: 2px solid #003578;
+  padding: .6rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.logo-bar {
+  height: 100px;                 /* ajuste se precisar menor/maior */
+}
+
+.header-text h1 {
+  font-size: 1.4rem;
+  margin: 0;
+  text-align: center;
+}
+
+.header-text h2 {
+  font-size: 1.1rem;
+  margin: .15rem 0 0;
+  text-align: center;
+}
