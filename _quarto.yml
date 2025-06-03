@@ -9,7 +9,5 @@ website:
 format:
   html:
     theme: flatly
-    css: assets/css/cal.css      # novo css enxuto
+    css: assets/css/cal.css     # só o CSS
     page-layout: full
-    include-in-header: |
-      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
