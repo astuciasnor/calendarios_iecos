@@ -1,64 +1,74 @@
+/* -----------------------------------------------------------
+   cal.css  –  estilo principal dos calendários IECOS
+----------------------------------------------------------- */
+
+/* Google Font: Inter */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
-/* ===  LAYOUT BÁSICO  === */
+/* ======  LAYOUT BÁSICO  ====== */
 body      { font-family: 'Inter', sans-serif; margin:0; }
 .wrapper  { display:flex; }
 
+/* ======  SIDEBAR  ====== */
 .sidebar  { width:170px; background:#f0f4f8; padding:1rem .6rem; }
 .sidebar img { width:100%; height:auto; margin-bottom:1rem; }
 .sidebar a   { display:block; margin:.4rem 0; color:#0f55a0;
                font-weight:700; text-decoration:none; }
-.sidebar a.active, .sidebar a:hover { color:#0f55a0; text-decoration:underline; }
+.sidebar a.active,
+.sidebar a:hover { background:#e1e7ff; color:#003578; text-decoration:none; }
 
+/* ======  ÁREA PRINCIPAL  ====== */
 .main     { flex:1; padding:1.2rem 2rem; }
 
-/* título */
-h1        { text-align:center; margin:.2rem 0 1.2rem; font-size:1.6rem; }
-
-/* ===  NAV DE TURMAS  === */
-#turmaNav  { text-align:center; margin-bottom:1rem; }
-#turmaNav button {
-  border:1px solid #cbd5e1; border-radius:4px; background:#e9ecef;
-  margin:0 .25rem .5rem; padding:.45rem .8rem; font-weight:600;
-}
-#turmaNav button.active { background:#0069d9; color:#fff; }
-
-/* ===  CALENDÁRIO  === */
-#iframeCal { width:100%; height:900px; border:1px solid #ccc; border-radius:6px; }
-#iframeCal::-webkit-scrollbar { width:0; background:transparent; }
-
-/* === LINKS DA SIDEBAR ====================================== */
-.sidebar a.active,
-.sidebar a:hover {
-  background: #e1e7ff;   /* cor suave de realce */
-  color: #003578;
-  text-decoration: none;
-}
-
-/* === CABEÇALHO SUPERIOR ==================================== */
+/* ======  CABEÇALHO (com logo)  ====== */
 .header-bar {
-  display: flex;
-  align-items: center;
-  justify-content: center;       /* centra bloco de texto */
-  gap: 1rem;
-  background: #f2f5f9;
-  border: 2px solid #003578;
-  padding: .6rem 1rem;
-  margin-bottom: 1rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:0.8rem;             /* mais compacto */
+  background:#f2f5f9;
+  border:2px solid #003578;
+  padding:.5rem 1rem;     /* mais compacto */
+  margin-bottom:1rem;
 }
 
-.logo-bar {
-  height: 100px;                 /* ajuste se precisar menor/maior */
+.logo-bar {               /* tamanho e proporção da logo */
+  max-height:80px;        /* ajuste conforme desejar */
+  max-width:140px;
+  width:auto;
+  height:auto;
+  object-fit:contain;     /* não distorce */
 }
 
 .header-text h1 {
-  font-size: 1.4rem;
-  margin: 0;
-  text-align: center;
+  font-size:1.4rem;
+  margin:0;
+  text-align:center;
 }
 
 .header-text h2 {
-  font-size: 1.1rem;
-  margin: .15rem 0 0;
-  text-align: center;
+  font-size:1.1rem;
+  margin:.15rem 0 0;
+  text-align:center;
 }
+
+/* ======  NAVEGAÇÃO DE TURMAS  ====== */
+#turmaNav  { text-align:center; margin-bottom:1rem; }
+#turmaNav button {
+  border:1px solid #cbd5e1;
+  border-radius:4px;
+  background:#e9ecef;
+  margin:0 .25rem .5rem;
+  padding:.45rem .8rem;
+  font-weight:600;
+}
+#turmaNav button.active { background:#0069d9; color:#fff; }
+
+/* ======  IFRAME DO CALENDÁRIO  ====== */
+#iframeCal {
+  width:100%;
+  height:900px;
+  border:1px solid #ccc;
+  border-radius:6px;
+}
+#iframeCal::-webkit-scrollbar { width:0; background:transparent; }
