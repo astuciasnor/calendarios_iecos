@@ -3,20 +3,28 @@ title: ""
 page-layout: full
 ---
 
-:::: wrapper
+:::::: wrapper
 <aside class="sidebar">
 
-<img src="assets/images/logo-iecos.png" alt="Logo IECOS" width="186"/> <a href="#" onclick="selCurso('EP');return false;" id="linkEP">Engenharia de Pesca</a> <a href="#" onclick="selCurso('CB');return false;" id="linkCB">Ciências Biológicas</a> <a href="#" onclick="selCurso('CN');return false;" id="linkCN">Ciências Naturais</a>
+<img src="assets/images/logo-iecos.png" alt="Logo IECOS" width="467"/> <a href="#" onclick="selCurso('EP');return false;" id="linkEP">Engenharia de Pesca</a> <a href="#" onclick="selCurso('CB');return false;" id="linkCB">Ciências Biológicas</a> <a href="#" onclick="selCurso('CN');return false;" id="linkCN">Ciências Naturais</a>
 
 </aside>
 
 <main class="main">
 
-<h1 id="titulo">
+:::: header-bar
+<img src="assets/images/logo-fepesca.png" alt="Logo do curso" id="logoBar" class="logo-bar" width="205"/>
 
-Calendários de Aulas – Engenharia de Pesca – 4º Período (2025/2026)
+::: header-text
+<h1>Calendário de Aulas de Cursos de Graduação do IECOS</h1>
 
-</h1>
+<h2 id="tituloCurso">
+
+Engenharia de Pesca – 4º Período (2025/2026)
+
+</h2>
+:::
+::::
 
 ::: {#turmaNav}
 :::
@@ -26,53 +34,61 @@ Calendários de Aulas – Engenharia de Pesca – 4º Período (2025/2026)
 </iframe>
 
 </main>
-::::
+::::::
 
 ```{=html}
 <script>
-// ============ CONFIGURAÇÃO =============
+// ==== CONFIG =====
 const cursos = {
-  EP: { nome:"Engenharia de Pesca", prefix:"EP_T", turmas:["2022","2023","2024","2025"], padrao:"2025" },
-  CB: { nome:"Ciências Biológicas",  prefix:"CB_T", turmas:["2022","2023","2024","2025"], padrao:"2025" },
-  CN: { nome:"Ciências Naturais",    prefix:"CN_T", turmas:["2022","2023","2024","2025"], padrao:"2025" }
+  EP: { nome:"Engenharia de Pesca", prefix:"EP_T",
+        logo:"assets/images/logo-fepesca.png",
+        turmas:["2022","2023","2024","2025"], padrao:"2025" },
+  CB: { nome:"Ciências Biológicas", prefix:"CB_T",
+        logo:"assets/images/logo-fbio.png",
+        turmas:["2022","2023","2024","2025"], padrao:"2025" },
+  CN: { nome:"Ciências Naturais", prefix:"CN_T",
+        logo:"assets/images/logo-facin.png",
+        turmas:["2022","2023","2024","2025"], padrao:"2025" }
 };
 let cursoAtual = "EP";
 
-// ============ FUNÇÕES =============
+// === gera botões ===
 function desenhaTurmas(key){
   const nav = document.getElementById('turmaNav');
   nav.innerHTML = "";
   cursos[key].turmas.forEach(ano => {
-    const btn = document.createElement('button');
-    btn.textContent = `Turma ${ano}`;
-    btn.onclick = () => mudaTurma(key, ano);
-    nav.appendChild(btn);
+    const b = document.createElement('button');
+    b.textContent = `Turma ${ano}`;
+    b.onclick = () => mudaTurma(key, ano);
+    nav.appendChild(b);
   });
 }
 
+// === troca de curso ===
 function selCurso(key){
   cursoAtual = key;
   const c = cursos[key];
-  document.getElementById('titulo').textContent =
-        `Calendários de Aulas – ${c.nome} – 4º Período (2025/2026)`;
+  document.getElementById('tituloCurso').textContent =
+        `${c.nome} – 4º Período (2025/2026)`;
+  document.getElementById('logoBar').src = c.logo;
   desenhaTurmas(key);
   mudaTurma(key, c.padrao);
 
-  // destaca link ativo
-  ["linkEP","linkCB","linkCN"].forEach(id => document.getElementById(id).classList.remove("active"));
+  // link ativo
+  ["linkEP","linkCB","linkCN"].forEach(id =>
+      document.getElementById(id).classList.remove("active"));
   document.getElementById(`link${key}`).classList.add("active");
 }
 
+// === troca de turma ===
 function mudaTurma(curKey, ano){
-  // ativa botão
   Array.from(document.getElementById('turmaNav').children)
        .forEach(b => b.classList.toggle('active', b.textContent.endsWith(ano)));
-  // monta caminho correto: EP_T2023_4P-2025.html
   const src = `resources/calendarios/${cursos[curKey].prefix}${ano}_4P-2025.html`;
   document.getElementById('iframeCal').src = src;
 }
 
-// ============ INICIALIZA =============
+// === init ===
 document.addEventListener('DOMContentLoaded', () => selCurso('EP'));
 </script>
 ```
