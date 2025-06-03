@@ -1,0 +1,26 @@
+/* ===  LAYOUT BÁSICO  === */
+body      { font-family: 'Inter', sans-serif; margin:0; }
+.wrapper  { display:flex; }
+
+.sidebar  { width:170px; background:#f0f4f8; padding:1rem .6rem; }
+.sidebar img { width:100%; height:auto; margin-bottom:1rem; }
+.sidebar a   { display:block; margin:.4rem 0; color:#0f55a0;
+               font-weight:700; text-decoration:none; }
+.sidebar a.active, .sidebar a:hover { color:#0f55a0; text-decoration:underline; }
+
+.main     { flex:1; padding:1.2rem 2rem; }
+
+/* título */
+h1        { text-align:center; margin:.2rem 0 1.2rem; font-size:1.6rem; }
+
+/* ===  NAV DE TURMAS  === */
+#turmaNav  { text-align:center; margin-bottom:1rem; }
+#turmaNav button {
+  border:1px solid #cbd5e1; border-radius:4px; background:#e9ecef;
+  margin:0 .25rem .5rem; padding:.45rem .8rem; font-weight:600;
+}
+#turmaNav button.active { background:#0069d9; color:#fff; }
+
+/* ===  CALENDÁRIO  === */
+#iframeCal { width:100%; height:900px; border:1px solid #ccc; border-radius:6px; }
+#iframeCal::-webkit-scrollbar { width:0; background:transparent; }

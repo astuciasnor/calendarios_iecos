@@ -1,41 +1,78 @@
 ---
-title: "Calendários Acadêmicos"
+title: ""
+page-layout: full
 ---
 
-# Bem-vindo aos Calendários Acadêmicos
+:::: wrapper
+<aside class="sidebar">
 
-Este site contém os calendários de aulas organizados por curso e turma.
+<img src="assets/images/logo-iecos.png" alt="Logo IECOS" width="186"/> <a href="#" onclick="selCurso('EP');return false;" id="linkEP">Engenharia de Pesca</a> <a href="#" onclick="selCurso('CB');return false;" id="linkCB">Ciências Biológicas</a> <a href="#" onclick="selCurso('CN');return false;" id="linkCN">Ciências Naturais</a>
 
-## Como usar
+</aside>
 
-1. Use o **menu à esquerda** para navegar
-2. Clique em **"Engenharia de Pesca"** para ver as turmas
-3. Selecione a turma desejada
+<main class="main">
 
-## Cursos Disponíveis
+<h1 id="titulo">
 
-### Engenharia de Pesca - 4º Período (2025/2026)
+Calendários de Aulas – Engenharia de Pesca – 4º Período (2025/2026)
 
-- **T2022** - Horário: 7h30 às 12h45 (manhã)
-- **T2023** - Horário: 13h30 às 18h45 (tarde)  
-- **T2024** - Horário: 7h30 às 12h45 (manhã)
-- **T2025** - Horário: 13h30 às 18h45 (tarde)
+</h1>
 
-### Período Letivo
+::: {#turmaNav}
+:::
 
-- **Início**: Outubro 2025
-- **Término**: Fevereiro 2026
-- **Intervalo**: 15 minutos entre aulas
+<iframe id="iframeCal" src="resources/calendarios/EP_T2025_4P-2025.html">
 
-## Informações dos Calendários
+</iframe>
 
-Cada calendário mostra:
+</main>
+::::
 
-- Horários das disciplinas por dia
-- Feriados e recessos
-- Cores diferentes para cada matéria
-- Navegação por mês
+```{=html}
+<script>
+// ============ CONFIGURAÇÃO =============
+const cursos = {
+  EP: { nome:"Engenharia de Pesca", prefix:"EP_T", turmas:["2022","2023","2024","2025"], padrao:"2025" },
+  CB: { nome:"Ciências Biológicas",  prefix:"CB_T", turmas:["2022","2023","2024","2025"], padrao:"2025" },
+  CN: { nome:"Ciências Naturais",    prefix:"CN_T", turmas:["2022","2023","2024","2025"], padrao:"2025" }
+};
+let cursoAtual = "EP";
 
----
+// ============ FUNÇÕES =============
+function desenhaTurmas(key){
+  const nav = document.getElementById('turmaNav');
+  nav.innerHTML = "";
+  cursos[key].turmas.forEach(ano => {
+    const btn = document.createElement('button');
+    btn.textContent = `Turma ${ano}`;
+    btn.onclick = () => mudaTurma(key, ano);
+    nav.appendChild(btn);
+  });
+}
 
-*Para dúvidas, entre em contato com a coordenação.*
+function selCurso(key){
+  cursoAtual = key;
+  const c = cursos[key];
+  document.getElementById('titulo').textContent =
+        `Calendários de Aulas – ${c.nome} – 4º Período (2025/2026)`;
+  desenhaTurmas(key);
+  mudaTurma(key, c.padrao);
+
+  // destaca link ativo
+  ["linkEP","linkCB","linkCN"].forEach(id => document.getElementById(id).classList.remove("active"));
+  document.getElementById(`link${key}`).classList.add("active");
+}
+
+function mudaTurma(curKey, ano){
+  // ativa botão
+  Array.from(document.getElementById('turmaNav').children)
+       .forEach(b => b.classList.toggle('active', b.textContent.endsWith(ano)));
+  // monta caminho correto: EP_T2023_4P-2025.html
+  const src = `resources/calendarios/${cursos[curKey].prefix}${ano}_4P-2025.html`;
+  document.getElementById('iframeCal').src = src;
+}
+
+// ============ INICIALIZA =============
+document.addEventListener('DOMContentLoaded', () => selCurso('EP'));
+</script>
+```

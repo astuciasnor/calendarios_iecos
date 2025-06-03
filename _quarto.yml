@@ -3,35 +3,13 @@ project:
   output-dir: docs
 
 website:
-  title: "Calendários Acadêmicos"
-  navbar:
-    background: primary
-    search: true
-    left:
-      - text: "Home"
-        href: index.qmd
-  sidebar:
-    style: "docked"
-    search: true
-    contents:
-      - section: "Engenharia de Pesca"
-        contents:
-          - text: "Turma T2022 - 4º Período"
-            href: calendarios/EP_T2022_4P-2025.html
-          - text: "Turma T2023 - 4º Período"
-            href: calendarios/EP_T2023_4P-2025.html
-          - text: "Turma T2024 - 4º Período"
-            href: calendarios/EP_T2024_4P-2025.html
-          - text: "Turma T2025 - 4º Período"
-            href: calendarios/EP_T2025_4P-2025.html
-      - section: "Outros Cursos"
-        contents:
-          - text: "Em breve..."
-            href: "#"
+  title: "Calendários IECOS – 4º Período 2025"
+  page-navigation: false
 
 format:
   html:
-    theme: cosmo
-    css: styles.css
-    toc: true
-    toc-location: right
+    theme: flatly
+    css: assets/css/cal.css      # novo css enxuto
+    page-layout: full
+    include-in-header: |
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">

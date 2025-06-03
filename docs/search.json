@@ -2,36 +2,8 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Calendários Acadêmicos",
+    "title": "\nCalendários de Aulas – Engenharia de Pesca – 4º Período (2025/2026)\n",
     "section": "",
-    "text": "Este site contém os calendários de aulas organizados por curso e turma.\n\n\n\nUse o menu à esquerda para navegar\nClique em “Engenharia de Pesca” para ver as turmas\nSelecione a turma desejada\n\n\n\n\n\n\n\nT2022 - Horário: 7h30 às 12h45 (manhã)\nT2023 - Horário: 13h30 às 18h45 (tarde)\n\nT2024 - Horário: 7h30 às 12h45 (manhã)\nT2025 - Horário: 13h30 às 18h45 (tarde)\n\n\n\n\n\nInício: Outubro 2025\nTérmino: Fevereiro 2026\nIntervalo: 15 minutos entre aulas\n\n\n\n\n\nCada calendário mostra:\n\nHorários das disciplinas por dia\nFeriados e recessos\nCores diferentes para cada matéria\nNavegação por mês\n\n\nPara dúvidas, entre em contato com a coordenação."
-  },
-  {
-    "objectID": "index.html#como-usar",
-    "href": "index.html#como-usar",
-    "title": "Calendários Acadêmicos",
-    "section": "",
-    "text": "Use o menu à esquerda para navegar\nClique em “Engenharia de Pesca” para ver as turmas\nSelecione a turma desejada"
-  },
-  {
-    "objectID": "index.html#cursos-disponíveis",
-    "href": "index.html#cursos-disponíveis",
-    "title": "Calendários Acadêmicos",
-    "section": "",
-    "text": "T2022 - Horário: 7h30 às 12h45 (manhã)\nT2023 - Horário: 13h30 às 18h45 (tarde)\n\nT2024 - Horário: 7h30 às 12h45 (manhã)\nT2025 - Horário: 13h30 às 18h45 (tarde)\n\n\n\n\n\nInício: Outubro 2025\nTérmino: Fevereiro 2026\nIntervalo: 15 minutos entre aulas"
-  },
-  {
-    "objectID": "index.html#informações-dos-calendários",
-    "href": "index.html#informações-dos-calendários",
-    "title": "Calendários Acadêmicos",
-    "section": "",
-    "text": "Cada calendário mostra:\n\nHorários das disciplinas por dia\nFeriados e recessos\nCores diferentes para cada matéria\nNavegação por mês\n\n\nPara dúvidas, entre em contato com a coordenação."
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "Este site hospeda os calendários da Faculdades de enegeharia de Pesca\nO Geredor de Calendário em html foi feito pelo Prof. Dr. Evaldo Martins da Silva. Ele é uma aplicativo web e usa como catálogo das componente curriculares arquivos csv dos cursos, com suas respectivas caraga horárias, códigos.\nVou atrelar a diciplina a caraga horária e gerar um calendário por professor\nNeste website, podemos navegar pelas turmas dos curso do IECOS."
+    "text": "Engenharia de Pesca Ciências Biológicas Ciências Naturais"
   }
 ]
