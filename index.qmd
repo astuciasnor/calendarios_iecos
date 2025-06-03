@@ -6,7 +6,7 @@ page-layout: full
 :::::: wrapper
 <aside class="sidebar">
 
-<img src="assets/images/logo-iecos.png" alt="Logo IECOS" width="467"/> <a href="#" onclick="selCurso('EP');return false;" id="linkEP">Engenharia de Pesca</a> <a href="#" onclick="selCurso('CB');return false;" id="linkCB">Ciências Biológicas</a> <a href="#" onclick="selCurso('CN');return false;" id="linkCN">Ciências Naturais</a>
+<img src="assets/images/logo-iecos.png" alt="Logo IECOS" width="303"/> <a href="#" onclick="selCurso('EP');return false;" id="linkEP">Engenharia de Pesca</a> <a href="#" onclick="selCurso('CB');return false;" id="linkCB">Ciências Biológicas</a> <a href="#" onclick="selCurso('CN');return false;" id="linkCN">Ciências Naturais</a>
 
 </aside>
 
